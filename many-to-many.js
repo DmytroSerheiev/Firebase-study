@@ -5,7 +5,7 @@ const bookId   = 'lorax';
 
 // 7. Middle Man Collection
 const userReviews = db.collection('reviews').where('author', '==', authorId);
-const bookReviews = db.collection('reviews').where('book', '==', authorId);
+const bookReviews = db.collection('reviews').where('book', '==', bookId);
 
 // Single read with composite key
 const specificReview = db.collection('reviews').doc(`${bookId}_${authorId}`);
