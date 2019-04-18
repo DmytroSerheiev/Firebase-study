@@ -4,10 +4,8 @@ import * as firebase from 'firebase/app';
 const remove = firebase.firestore.FieldValue.arrayRemove;
 const union = firebase.firestore.FieldValue.arrayUnion;
 
-// 1. Follow User
-
 export const follow  = (followed, follower) => {
-    const followersRef = db.collection(followed).doc(id);
+    const followersRef = db.collection('followers').doc(followed);
 
    followersRef.update({ users: union(follower) });
 }
@@ -19,6 +17,8 @@ export const unfollow  = (followed, follower) => {
 
     followersRef.update({ users: remove(follower) });
 }
+
+
 
 // 3. Get posts of followers
 
