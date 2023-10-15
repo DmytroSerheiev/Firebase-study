@@ -1,3 +1,5 @@
+//===============Role-Based Authorization===========
+
 match /posts/{document} {
 
     function getRoles() {
@@ -7,4 +9,12 @@ match /posts/{document} {
     allow read;
     allow update: if getRoles().hasAny(['admin', 'editor']) == true;
     allow write: if getRoles().hasAny(['admin']) == true;
+}
+//==============Access Control List==============
+
+match /posts/{document} {
+
+    allow read;
+    allow write: if resource.data.members.hasAny(request.auth.uid);
+
 }
