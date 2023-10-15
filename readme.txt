@@ -21,24 +21,6 @@ Follower Feed - сортування масиву повідомлень за д
 Collection Group Queries
 in May of 2019 shortly after this course was originally produced firebase released a new feature that adds some flexibility to sub collection queries this new feature is called a collection group query and it allows you to make a query across multiple sub collections at the same time as long as the sub collection shares the same name this makes it a lot easier to model certain types relationships in a sub collection especially a one-to-mani relationship consider this example here where we have a root authors collection and then also a root books collection in order to manage the relationship on every book document this allows us to make a query of all books that equal a certain author ID and the reason this is commonly kept as a root collection and not a sub collection is because you might also want to make a query of all books that were published on a certain date now prior to May 2019 that just wasn't possible in a sub collection but now that we have collection group queries it is possible now the root collection approach works perfectly fine so you don't need to go and change your existing data models but a sub collection might be a better approach and a lot of situations because you don't need to manually save the parents ID on every single document and it also just provides a more natural hierarchy in the database at large then you feature that makes this all possible is the collection group query and it works just like a regular collection query except that it will grab all the Collections that share a similar ID in Our Data model we have a collection called books nested under every single author so it's going to find all of the books collections and then it will query them based on the same logic that you would do with a normal query so this basically allows you to take all of the sub collections called books and then combine them into a single query so this is a special useful for things like comments where you have multiple blog posts and you have comments nested as a sub collection under each post 90% of the time you probably just want to read the comments under the post itself but you might also want to make a collection group query to get all the comments from a certain user across all the posts in the database
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Resources
 a couple things you need first of all you'll need a firebase project and you want to make sure you have firestore enabled as your database in that project in many of the examples we'll be looking at the actual queries that we use to access the data in the database all that code is written in Javascript and you can find these Source Code in the github link below even though the queries are written in Javascript they're very similar for other languages like Swift or kotlin or dart if you're using flutter a lot of developers will be using firebase with a supporting library like angular fire or viewfire on the web so I'm going to keep this Source Code is simple as possible so you can modify the queries to work with whatever language or framework that you're using in fact I would recommend that you follow along with this video using your framework or language of choice then use the JavaScript code as a guide to point you in the right direction but if you do want to follow along with the vanilla JavaScript you can clone the repo and then add your firebase credentials to the config.js file in addition to the resources on fireship IO I also have a couple of articles on angular firebase.com that covered data modeling these articles are written when firestore was in beta but there's still relevant for the most part the firebase team also recently released a video series called getting to know cloud firestore if you haven't seen that already I highly recommend watching it that video series will have some overlap with this course but we'll be pushing things a lot farther and another resource I recommend is just data modeling articles on mongodb there's a lot of articles out there and I'm not going to recommend anything specific but mongodb sure is a lot of similarities with Firestorm so a lot of the data modeling Concepts apply they're both document oriented databases so at a very high level we can apply a lot of the same Concepts even though they're not a perfect one to one comparison and lastly the cloud firestore documentation is very thorough and very good it's very limited on data modeling which is one of the reasons I'm making this course but make sure to bookmark it for whatever language or framework you're using so those are the resources you'll want to have by your side for this course in the next video we'll look at what firestore actually is
 
